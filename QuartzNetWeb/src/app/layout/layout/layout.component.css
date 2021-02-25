@@ -1,14 +1,53 @@
 .logo {
-    width: 120px;
-    height: 31px;
-    background: rgba(255, 255, 255, .2);
-    margin: 16px 24px 16px 0;
-    float: left;
-    border-radius: 6px;
-    margin: 16px;
-    line-height: 31px;
-    overflow: hidden;
-    text-align: center;
-    color: #fff;
-    font-size: 16px;
+  min-width: 120px;
+  padding: 0 8px;
+  height: 31px;
+  background: rgba(255, 255, 255, .2);
+  margin: 16px 24px 16px 0;
+  float: left;
+  border-radius: 6px;
+  margin: 16px;
+  line-height: 31px;
+  overflow: hidden;
+  text-align: center;
+  color: #fff;
+  font-size: 16px;
+}
+
+.ant-layout-content {
+  min-height: initial;
+}
+
+nz-layout {
+  min-height: 100%;
+  height: initial !important;
+}
+
+::ng-deep .ant-modal {
+  width: 615px !important;
+}
+
+ul li {
+  display: inline-block;
+  cursor: pointer;
+}
+
+ul li:hover {
+  background: #05315D;
+}
+
+.nomenu a {
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.nomenu:hover a {
+  color: #fff;
+}
+
+.nomenu:active {
+  background: #0094ff;
+}
+
+.nomenu:active a {
+  color: #fff;
 }

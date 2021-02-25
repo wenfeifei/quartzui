@@ -1,12 +1,68 @@
+::ng-deep .ant-collapse-content>.ant-collapse-content-box {
+  padding: 0px;
+}
+
 .jobTable {
   width: 100%;
   padding: 0;
   table-layout: fixed;
 }
 
+.jobTable tr {
+  height: 50px;
+}
+
 .jobTable th,
 .jobTable td {
-  padding: 5px;
+  border: 1px solid #f5f5f5;
+}
+
+.jobTable th:not(.tb-center),
+.jobTable td:not(.tb-center) {
+  padding: 0 15px;
+}
+
+/*笔记本 (小于1400px时应用的样式)*/
+@media screen and (max-width: 1400px) {
+
+  .jobTable th:not(.tb-center),
+  .jobTable td:not(.tb-center) {
+    padding-left: 8px;
+  }
+}
+
+.jobTable tr:hover {
+  background: #E6F7FF;
+}
+
+.jobTable tr:first-child {
+  background: #FBFBFB;
+}
+
+.jobTable tr:first-child:hover {
+  background: #FBFBFB;
+}
+
+.jobTable tr th {
+  border-top: 0;
+}
+
+.jobTable tr:last-child td {
+  border-bottom: 0;
+}
+
+/* 最后一列，操作按钮 */
+.jobTable tr th:last-child,
+.jobTable tr td:last-child {
+  border-right: 0;
+  padding-right: 0px;
+  padding-left: 13px;
+}
+
+
+.jobTable tr th:first-child,
+.jobTable tr td:first-child {
+  border-left: 0;
 }
 
 .jobTable .td-url {
@@ -18,14 +74,6 @@
 /*
   超出部分显示省略号 
   https://www.cnblogs.com/whb17bcdq/p/6549643.html */
-
-.jobTable th:nth-child(3) {
-  width: 13%;
-}
-
-.jobTable th:nth-child(9) {
-  min-width: 5%;
-}
 
 div::-webkit-scrollbar {
   width: 10px;
@@ -56,8 +104,12 @@ div::-webkit-scrollbar-thumb {
 }
 
 form nz-tag {
-  line-height: 39px;
+  /* line-height: 39px;
+  margin-left: 5px; */
+
+  line-height: 20px;
   margin-left: 5px;
+  margin-top: 8px;
 }
 
 ::ng-deep .ant-form-item {
@@ -83,4 +135,98 @@ form nz-tag {
 
 ::ng-deep span.result {
   color: #0094ff;
+}
+
+
+::ng-deep .ant-btn-danger {
+  color: #f5222d;
+  background-color: #f5f5f5;
+  border-color: #d9d9d9;
+  text-shadow: initial;
+  box-shadow: initial;
+}
+
+::ng-deep .ant-btn-danger:hover {
+  background-color: #FF4D4F;
+}
+
+.yanjing {
+  padding: 10px;
+  width: 40px;
+  height: 40px;
+}
+
+.tb-center {
+  text-align: center;
+}
+
+.ant-tag {
+  margin: 0px;
+}
+
+::ng-deep p.msgList {
+  border-left: 3px solid #b4daf5;
+  padding-left: 20px;
+}
+
+::ng-deep p.msgList.error {
+  border-left: 3px solid #ff9f9f;
+}
+
+::ng-deep p.msgList span.time {
+  font-weight: 600;
+  display: block;
+  /* color: #fff;
+  padding: 0 10px;
+  border-radius: 4px;
+  background: #40a9ffad; */
+}
+
+::ng-deep .ant-modal-body {
+  max-height: 680px;
+  overflow-y: auto;
+}
+
+/*笔记本 (小于1400px时应用的样式)*/
+@media screen and (max-width: 1400px) {
+  ::ng-deep .ant-modal-body {
+    max-height: 480px;
+    overflow-y: auto;
+  }
+
+  .jobTable tr th:last-child,
+  .jobTable tr td:last-child {
+    padding-left: 7px;
+  }
+}
+
+::ng-deep div::-webkit-scrollbar {
+  width: 10px;
+  /*滚动条宽度*/
+  height: 10px;
+  /*滚动条高度*/
+}
+
+/*  滚动条效果，鼠标悬浮才显示 
+::ng-deep div.ant-table-body.ng-star-inserted:hover::-webkit-scrollbar-thumb,
+::ng-deep div.ant-modal-body:hover::-webkit-scrollbar-thum
+*/
+::ng-deep div.ant-modal-body::-webkit-scrollbar-track {
+  background-color: #fff;
+}
+
+::ng-deep div.ant-modal-body::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0);
+  background-color: rgb(241, 241, 241, 0);
+}
+
+::ng-deep div.ant-modal-body:hover::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+  background-color: rgb(241, 241, 241);
+}
+
+.tag-jobtype {
+  min-width: 42px;
 }

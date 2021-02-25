@@ -7,8 +7,12 @@
 ## 说明文档 
 https://github.com/zhaopeiym/quartzui/wiki  
 
+## 演示地址
+https://scheduler.haojima.net  
+默认口令：admin  
+
 ## quartzui
-- 基于Quartz.NET 3.0的web管理界面。
+- 基于.NET5.0和Quartz.NET3.2.4的任务调度Web界面管理。
 - docker方式开箱即用
 - 内置SQLite持久化
 - 支持 RESTful风格接口
@@ -33,8 +37,37 @@ docker run -v /fileData/quartzuifile:/app/File  --restart=unless-stopped --privi
 ```
 - 方式3（可直接通过源码部署到windows或linux平台） 
 
+## 更换数据源  
+默认使用的是SQLite-Microsoft  
+如果需要使用其他数据源请自行在[appsettings.json](https://github.com/zhaopeiym/quartzui/blob/dev/QuartzNetAPI/Host/appsettings.json)进行正确配置。如：  
+```
+"dbProviderName":"OracleODPManaged",
+"connectionString": "Data Source=(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=localhost)(PORT=1521)))(CONNECT_DATA=(SERVICE_NAME=xe)));User Id=system;Password=oracle;";
+
+"dbProviderName":"SqlServer",
+"connectionString": "Server=localhost;Database=quartznet;User Id={SqlServerUser};Password={SqlServerPassword};";
+
+"dbProviderName":"SQLServerMOT",
+"connectionString": "Server=localhost,1444;Database=quartznet;User Id={SqlServerUser};Password={SqlServerPassword};"
+
+"dbProviderName":"MySql", // MySql 测试通过
+"connectionString": "Server = localhost; Database = quartznet; Uid = quartznet; Pwd = quartznet";
+
+"dbProviderName":"Npgsql", // Npgsql 测试通过
+"connectionString": "Server=127.0.0.1;Port=5432;Userid=quartznet;Password=quartznet;Pooling=true;MinPoolSize=1;MaxPoolSize=20;Timeout=15;SslMode=Disable;Database=quartznet";
+
+"dbProviderName":"SQLite",
+"connectionString": "Data Source=test.db;Version=3;";
+
+"dbProviderName":"SQLite-Microsoft", // SQLite-Microsoft 测试通过
+"connectionString": "Data Source=test.db;";
+
+"dbProviderName":"Firebird",
+"connectionString": "User=SYSDBA;Password=masterkey;Database=/firebird/data/quartz.fdb;DataSource=localhost;Port=3050;Dialect=3;Charset=NONE;Role=;Connection lifetime=15;Pooling=true;MinPoolSize=0;MaxPoolSize=50;Packet Size=8192;ServerType=0;";
+```
+
 ## 效果图
-![1](https://user-images.githubusercontent.com/5820324/56856558-1c267400-6990-11e9-98a8-c1bf9bd0ba3c.png)
+![1](https://user-images.githubusercontent.com/5820324/105847993-574c5000-6019-11eb-8779-802fdd172a96.png)
 ![2](https://user-images.githubusercontent.com/5820324/56856559-1c267400-6990-11e9-8433-4705e0c4a984.png)
 ![3](https://user-images.githubusercontent.com/5820324/56856560-1cbf0a80-6990-11e9-835c-268efac70d50.png)
 ![4](https://user-images.githubusercontent.com/5820324/56856561-1cbf0a80-6990-11e9-8af6-a93ad0e09740.png)
